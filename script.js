@@ -1,25 +1,25 @@
+let currentPageIndex = 0;
 const pages = document.querySelectorAll('.page');
-let currentPage = 0;
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowUp') {
-    changePage(Math.max(0, currentPage - 1));
-  } else if (event.key === 'ArrowDown') {
-    changePage(Math.min(pages.length - 1, currentPage + 1));
-  }
+    if (event.key === 'ArrowUp') {
+        currentPageIndex = Math.max(currentPageIndex - 1, 0);
+    } else if (event.key === 'ArrowDown') {
+        currentPageIndex = Math.min(currentPageIndex + 1, pages.length - 1);
+    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        const currentPage = pages[currentPageIndex];
+        // Handle left/right navigation within specific pages (e.g., Projects)
+    }
+
+    updatePageVisibility();
 });
 
-function changePage(newPage) {
-  const currentPageElement = pages[currentPage];
-  const newPageElement = pages[newPage];
-
-  currentPageElement.style.opacity = 0; // Fade out the current page
-  setTimeout(() => {
-    currentPageElement.style.display = 'none';
-    newPageElement.style.display = 'flex';
-    setTimeout(() => {
-      newPageElement.style.opacity = 1; // Fade in the new page
-      currentPage = newPage;
-    }, 50); // Adjust the timing as needed
-  }, 300); // Adjust the timing as needed
+function updatePageVisibility() {
+    pages.forEach((page, index) => {
+        if (index === currentPageIndex) {
+            page.classList.add('visible');
+        } else {
+            page.classList.remove('visible');
+        }
+    });
 }
