@@ -4,12 +4,18 @@ const pages = document.querySelectorAll('.page');
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowUp') {
         currentPageIndex = Math.max(currentPageIndex - 1, 0);
+        pages[currentPageIndex].classList.remove('slide-down');
+        pages[currentPageIndex].classList.add('slide-up');
     } else if (event.key === 'ArrowDown') {
         currentPageIndex = Math.min(currentPageIndex + 1, pages.length - 1);
+        pages[currentPageIndex].classList.remove('slide-up');
+        pages[currentPageIndex].classList.add('slide-down');
     } else if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-        const currentPage = pages[currentPageIndex];
-        // Handle left/right navigation within specific pages (e.g., Projects)
+        /* ... handle left/right navigation ... */
     }
+
+    updatePageVisibility();
+});
 
     updatePageVisibility();
 });
