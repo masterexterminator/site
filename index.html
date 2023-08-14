@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Your Website Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Your Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<div class="page" id="page1">Page 1</div>
+<div class="page" id="page2">Page 2</div>
+<div class="page" id="page3">Page 3</div>
 
-    <main>
-        <section>
-            <h2>About Us</h2>
-            <p>This is a paragraph about your website.</p>
-        </section>
+<script>
+const pages = document.querySelectorAll('.page');
+let currentPage = 0;
 
-        <section>
-            <h2>Services</h2>
-            <ul>
-                <li>Service 1</li>
-                <li>Service 2</li>
-                <li>Service 3</li>
-            </ul>
-        </section>
-    </main>
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowUp') {
+    currentPage = Math.max(0, currentPage - 1);
+  } else if (event.key === 'ArrowDown') {
+    currentPage = Math.min(pages.length - 1, currentPage + 1);
+  }
 
-    <footer>
-        <p>&copy; 2023 Your Website. All rights reserved.</p>
-    </footer>
+  pages.forEach((page, index) => {
+    if (index === currentPage) {
+      page.style.display = 'flex';
+    } else {
+      page.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>
-
