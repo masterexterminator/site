@@ -1,0 +1,28 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-container {
+  display: flex;
+  height: 100vh; /* Set the container's height to viewport height */
+}
+
+.page {
+  flex: 1;
+  height: 100vh; /* Set each page's height to viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+}
