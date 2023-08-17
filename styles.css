@@ -1,9 +1,4 @@
-body {
-    background-image: url("binary.jpg");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    
+/* Reset some default styles */
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
@@ -11,6 +6,7 @@ body, h1, h2, h3, p {
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
 /* Navigation styling */
@@ -38,11 +34,32 @@ section {
     text-align: center;
 }
 
-/* Project styling */
+#home {
+    background-image: url('bg-home.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+#about {
+    background-color: #f9f9f9;
+}
+
+#projects {
+    background-color: #fff;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
 .project {
-    border: 1px solid #ddd;
+    display: inline-block;
+    width: 300px;
+    margin: 20px;
     padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
+    background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#contact {
+    background-color: #f9f9f9;
 }
