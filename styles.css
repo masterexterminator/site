@@ -1,4 +1,9 @@
-/* Reset some default styles */
+body {
+    background-image: binary.jpg;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
